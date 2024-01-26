@@ -1,0 +1,20 @@
+.pages {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10vh;
+
+  h2 {
+    font-family: 'SuseongDotum';
+  }
+
+  p {
+    font-family: 'NanumSquareRound';
+  }
+
+  a {
+    text-decoration: underline;
+    color: var(--color-point);
+    margin-top: 4vh;
+  }
+}

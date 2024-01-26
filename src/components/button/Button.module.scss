@@ -1,0 +1,18 @@
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  .button {
+    background-color: var(--color-point);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 800;
+    width: fit-content;
+    cursor: pointer;
+    font-family: 'NanumSquareRound';
+  }
+}

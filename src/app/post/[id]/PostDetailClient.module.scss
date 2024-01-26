@@ -1,0 +1,68 @@
+.section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'NanumSquareRound';
+
+  header {
+    background-color: var(--color-black);
+    padding: 100px 30px;
+    color: var(--color-white);
+    display: flex;
+    flex-flow: column wrap;
+
+    .link {
+      margin-bottom: 90px;
+
+      a {
+        text-decoration: underline;
+        color: var(--color-lightgray);
+      }
+    }
+
+    .title {
+      font-family: 'Godo';
+      font-size: 1.7rem;
+      color: var(--color-white);
+    }
+
+    .subtitle {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 10px;
+      gap: 20px;
+
+      .date {
+        font-size: 0.8rem;
+      }
+
+      .keywords {
+        display: flex;
+        gap: 10px;
+
+        .key {
+          font-size: 0.8rem;
+          padding: 3px 6px;
+          background-color: var(--color-primary);
+          border-radius: 10px;
+          color: var(--color-black);
+        }
+      }
+    }
+
+    .btnGroup {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      text-decoration: underline;
+      span {
+        font-size: 0.8rem;
+        cursor: pointer;
+      }
+    }
+  }
+  .contents {
+    margin: 3rem 1rem;
+  }
+}

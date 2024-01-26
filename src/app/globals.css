@@ -1,33 +1,101 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'SuseongDotum';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/SuseongDotum.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2')
+      format('woff2'),
+    url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'NanumSquareRound';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'D2Coding';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --background-color: #eae1e6;
+  --color-lightgray: #f1f1f1;
+  --color-gray: #919191;
+  --color-darkgary: #474747;
+  --color-red: #9c1d2b;
+  --color-black: #3a2b26;
+  --color-white: #ffffff;
+
+  --color-primary: #e4c2c1;
+  --color-secondary: #b6666f;
+  --color-point: #f53163;
+}
+
+* {
+  margin: 0;
+  font-size: 18px;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--background-color);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h1 {
+  font-size: 1.5rem;
+  color: var(--color-point);
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+blockquote {
+  width: 95%;
+  margin: 1rem 0;
+  background-color: var(--color-lightgray);
+  border-left: 3px solid var(--color-point);
+  font-style: italic;
+  line-height: 1.8em;
+  padding: 1em 2em;
+}
+
+pre {
+  background-color: var(--color-darkgary);
+  color: var(--color-white);
+  font-family: 'D2Coding';
+  padding: 20px 15px;
+  margin: 2rem 0;
+  border-radius: 10px;
+}
+
+.ql-align-center {
+  text-align: center;
+}
+
+.ql-align-right {
+  text-align: right;
+}
+
+.ql-align-justify {
+  display: flex;
+  justify-content: space-between;
 }

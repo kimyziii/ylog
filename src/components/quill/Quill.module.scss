@@ -1,0 +1,29 @@
+.editor {
+  width: 100%;
+
+  .quill {
+    .ql-container {
+      .ql-editor {
+        font-family: 'NanumSquareRound';
+      }
+    }
+  }
+}
+
+// .ql-snow .ql-editor .ql-font[data-value='NanumSquareRound']::before,
+// .ql-snow .ql-editor .ql-font[data-value='NanumSquareRound']::before {
+//   content: 'NanumSquareRound';
+//   font-family: 'NanumSquareRound';
+// }
+// .ql-font-NanumSquareRound {
+//   font-family: 'NanumSquareRound';
+// }
+
+// .ql-snow .ql-editor .ql-font[data-value='SuseongDotum']::before,
+// .ql-snow .ql-editor .ql-font[data-value='SuseongDotum']::before {
+//   content: 'SuseongDotum';
+//   font-family: 'SuseongDotum';
+// }
+// .ql-font-SuseongDotum {
+//   font-family: 'SuseongDotum';
+// }
