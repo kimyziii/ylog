@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ylog-lime.vercel.app
+
+# Sitemaps
+Sitemap: https://ylog-lime.vercel.app/sitemap.xml
