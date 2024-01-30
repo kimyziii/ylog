@@ -17,8 +17,8 @@
 }
 
 @font-face {
-  font-family: 'NanumSquareRound';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff')
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff')
     format('woff');
   font-weight: normal;
   font-style: normal;
@@ -48,24 +48,31 @@
 
 * {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
+  ::selection {
+    background-color: var(--color-primary);
+  }
 }
 
 body {
   background-color: var(--background-color);
 }
 
-h1 {
+h2 {
   font-size: 1.5rem;
   color: var(--color-point);
 }
 
-h2 {
+h3 {
   font-size: 1.3rem;
 }
 
 p {
   font-size: 1rem;
+}
+
+ul + p {
+  margin-left: 20px;
 }
 
 blockquote {
@@ -82,8 +89,9 @@ pre {
   background-color: var(--color-darkgary);
   color: var(--color-white);
   font-family: 'D2Coding';
+  font-size: 0.8rem;
   padding: 20px 15px;
-  margin: 2rem 0;
+  margin: 1rem 0;
   border-radius: 10px;
 }
 

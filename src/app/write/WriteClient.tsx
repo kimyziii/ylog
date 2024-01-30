@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import styles from './WriteClient.module.scss'
 import { Timestamp, addDoc, collection } from 'firebase/firestore'
 import { db } from '@/firebase/firebase'
+import { useRouter } from 'next/navigation'
 
 type DataType = {
   title: string
@@ -26,6 +27,7 @@ const initialData = {
 }
 
 const WriteClient = () => {
+  const router = useRouter()
   const [data, setData] = useState<DataType>(initialData)
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -44,7 +46,8 @@ const WriteClient = () => {
       ...data,
       createdAt: Timestamp.now().toDate(),
     }
-    await addDoc(collection(db, 'posts'), dataObj)
+    const doc = await addDoc(collection(db, 'posts'), dataObj)
+    router.push(`/post/${doc.id}`)
   }
 
   return (

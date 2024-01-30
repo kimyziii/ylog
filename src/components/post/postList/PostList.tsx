@@ -4,26 +4,16 @@ import styles from './PostList.module.scss'
 import useFetchCollection from '@/hooks/useFetchCollection'
 import { useDispatch, useSelector } from 'react-redux'
 import { STORE_POSTS, selectPosts } from '@/redux/slice/postSlice'
-import { formatDate } from '@/app/util/dayjs'
+import { formatDate } from '@/util/dayjs'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-
-type DataType = {
-  id: string
-  title: string
-  description: string
-  contents: string
-  keywords: string
-  userId?: string
-  userName?: string
-  createdAt?: Date
-}
+import { IPost } from '@/types'
 
 const PostList = () => {
   const router = useRouter()
   const dispatch = useDispatch()
 
-  const { data, isLoading } = useFetchCollection('posts')
+  const { data } = useFetchCollection('posts')
 
   useEffect(() => {
     dispatch(STORE_POSTS(data))
@@ -35,7 +25,7 @@ const PostList = () => {
     <div className={styles.postList}>
       {posts.length !== 0 && (
         <>
-          {posts.map((post: DataType) => {
+          {posts.map((post: IPost) => {
             return (
               <section key={post.id} className={styles.post}>
                 <div
@@ -54,7 +44,7 @@ const PostList = () => {
                 </div>
                 <div className={styles.summary}>
                   <div className={styles.date}>
-                    {formatDate(post.createdAt, 'YYYY년 MM월 DD일')}
+                    {formatDate(post.createdDate, 'YYYY년 MM월 DD일')}
                   </div>
                   <div
                     className={styles.title}

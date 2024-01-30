@@ -1,9 +1,9 @@
 'use client'
 import { useParams } from 'next/navigation'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './PostDetailClient.module.scss'
 import useFetchDocument from '@/hooks/useFetchDocument'
-import { formatDate } from '@/app/util/dayjs'
+import { formatDate } from '@/util/dayjs'
 import parse from 'html-react-parser'
 import Link from 'next/link'
 import Notiflix from 'notiflix'
@@ -20,7 +20,7 @@ const PostDetailClient = () => {
   const isLoggedIn = useSelector(selectLoggedIn)
   const { document: post } = useFetchDocument('posts', String(id))
   const keywords = post.keywords
-    ? post.keywords.split(',').map((m) => m.trim())
+    ? post.keywords.split(',').map((m: string) => m.trim())
     : []
 
   const handleDelete = (id: string) => {
@@ -42,7 +42,6 @@ const PostDetailClient = () => {
       },
     )
   }
-
   const handleEdit = (id: string) => {
     router.push(`/edit/${id}`)
   }
@@ -67,11 +66,11 @@ const PostDetailClient = () => {
             <div className={styles.title}>{post.title}</div>
             <div className={styles.subtitle}>
               <span className={styles.date}>
-                {formatDate(post.createdAt, 'YYYY년 MM월 DD일')}
+                {formatDate(post.createdDate, 'YYYY년 MM월 DD일')}
               </span>
               {keywords.length > 0 && (
                 <div className={styles.keywords}>
-                  {keywords.map((key) => {
+                  {keywords.map((key: string) => {
                     return (
                       <div className={styles.key} key={key}>
                         {key}

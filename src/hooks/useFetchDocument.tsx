@@ -1,21 +1,6 @@
 import { db } from '@/firebase/firebase'
-import { doc, getDoc } from 'firebase/firestore'
+import { DocumentData, doc, getDoc } from 'firebase/firestore'
 import { useCallback, useEffect, useState } from 'react'
-
-interface FetchDocumentProps {
-  collectionName: string
-  id: string
-}
-
-interface DataType {
-  id?: string
-  createdAt: Date
-  title: string
-  contents: string
-  keywords: string
-
-  description?: string
-}
 
 const initialValue = {
   createdAt: new Date(),
@@ -25,7 +10,7 @@ const initialValue = {
 }
 
 const useFetchDocument = (collectionName: string, id: string) => {
-  const [document, setDocument] = useState<DataType>(initialValue)
+  const [document, setDocument] = useState<DocumentData>(initialValue)
 
   const getDocument = useCallback(async () => {
     const docRef = doc(db, collectionName, id)
@@ -34,7 +19,7 @@ const useFetchDocument = (collectionName: string, id: string) => {
     if (docSnap.exists()) {
       const obj = {
         id,
-        ...(docSnap.data() as DataType),
+        ...(docSnap.data() as DocumentData),
       }
 
       setDocument(obj)
