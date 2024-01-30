@@ -1,7 +1,7 @@
 'use client'
 import React, { FormEventHandler, useEffect, useState } from 'react'
 import styles from '../../write/WriteClient.module.scss'
-import { Timestamp, doc, setDoc } from 'firebase/firestore'
+import { DocumentData, Timestamp, doc, setDoc } from 'firebase/firestore'
 import { db } from '@/firebase/firebase'
 import { useParams, useRouter } from 'next/navigation'
 import useFetchDocument from '@/hooks/useFetchDocument'
@@ -9,17 +9,6 @@ import QuillEditor from '@/components/quill/QuillEditor'
 import Button from '@/components/button/Button'
 import { useSelector } from 'react-redux'
 import { selectLoggedIn } from '@/redux/slice/authSlice'
-
-type DataType = {
-  id?: string
-  title: string
-  description?: string
-  contents: string
-  keywords: string
-  userId?: string
-  userName?: string
-  createdAt?: Date
-}
 
 const PostEditClient = () => {
   const router = useRouter()
@@ -29,7 +18,7 @@ const PostEditClient = () => {
 
   const { id } = useParams()
   const { document } = useFetchDocument('posts', String(id))
-  const [post, setPost] = useState<DataType>(document)
+  const [post, setPost] = useState<DocumentData>(document)
 
   useEffect(() => {
     setPost(document)
@@ -37,11 +26,11 @@ const PostEditClient = () => {
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget
-    setPost((prev) => ({ ...prev, [name]: value } as DataType))
+    setPost((prev) => ({ ...prev, [name]: value } as DocumentData))
   }
 
   const handleEditorChange = (value: string) => {
-    setPost((prev) => ({ ...prev, contents: value } as DataType))
+    setPost((prev) => ({ ...prev, contents: value } as DocumentData))
   }
 
   const handleSubmit = async (
@@ -60,6 +49,7 @@ const PostEditClient = () => {
       router.push(`/post/${id}`)
     } catch (e) {
       // 에러 처리
+    } finally {
     }
   }
 

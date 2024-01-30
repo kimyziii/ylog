@@ -38,18 +38,14 @@ const LoginClient = () => {
     e.preventDefault()
 
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password,
-      )
-      if (userCredential) {
+      signInWithEmailAndPassword(auth, data.email, data.password).then(() => {
         dispatch(SET_LOGIN())
-        router.push('/')
-      }
+      })
     } catch (e: unknown) {
       const fbError = e as FirebaseError
       Notify.failure(fbError.message)
+    } finally {
+      router.push('/')
     }
   }
 

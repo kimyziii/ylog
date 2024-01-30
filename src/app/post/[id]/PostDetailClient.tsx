@@ -1,8 +1,7 @@
 'use client'
-import { useParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+
+import React from 'react'
 import styles from './PostDetailClient.module.scss'
-import useFetchDocument from '@/hooks/useFetchDocument'
 import { formatDate } from '@/util/dayjs'
 import parse from 'html-react-parser'
 import Link from 'next/link'
@@ -12,13 +11,15 @@ import { db } from '@/firebase/firebase'
 import { useRouter } from 'next/navigation'
 import { useSelector } from 'react-redux'
 import { selectLoggedIn } from '@/redux/slice/authSlice'
+import { IPost } from '@/types'
 
-const PostDetailClient = () => {
-  const { id } = useParams()
-  const router = useRouter()
+interface IPostDetailClientProps {
+  post: IPost
+}
 
+const PostDetailClient = ({ post }: IPostDetailClientProps) => {
   const isLoggedIn = useSelector(selectLoggedIn)
-  const { document: post } = useFetchDocument('posts', String(id))
+  const router = useRouter()
   const keywords = post.keywords
     ? post.keywords.split(',').map((m: string) => m.trim())
     : []
@@ -42,6 +43,7 @@ const PostDetailClient = () => {
       },
     )
   }
+
   const handleEdit = (id: string) => {
     router.push(`/edit/${id}`)
   }

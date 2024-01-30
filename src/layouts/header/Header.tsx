@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { SET_LOGOUT, selectLoggedIn } from '@/redux/slice/authSlice'
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase/firebase'
-import { endLoading, startLoading } from '@/util/loading'
 
 const Header = () => {
   const router = useRouter()
@@ -21,10 +20,8 @@ const Header = () => {
   const additionalStyle = { marginBottom: '4rem' }
 
   const handleLogout = () => {
-    startLoading()
     signOut(auth)
     dispatch(SET_LOGOUT())
-    endLoading()
   }
 
   return (

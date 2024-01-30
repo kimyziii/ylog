@@ -36,10 +36,11 @@ const QuillToolbar = () => {
   return (
     <div id='toolbar'>
       <span className='ql-formats'>
-        <select className='ql-header' defaultValue='3'>
-          <option value='1'>Heading</option>
-          <option value='2'>Subheading</option>
-          <option value='3'>Normal</option>
+        <select className='ql-header' defaultValue='4'>
+          <option value='1'>Title</option>
+          <option value='2'>SubTitle</option>
+          <option value='3'>Subheading</option>
+          <option value='4'>Normal</option>
         </select>
       </span>
       <span className='ql-formats'>
