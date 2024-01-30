@@ -4,6 +4,11 @@ import { doc, getDoc } from 'firebase/firestore'
 import { db } from '@/firebase/firebase'
 import { IPost } from '@/types'
 
+const PostDetailPage = async ({ params }: { params: { id: string } }) => {
+  const { post } = await getServerSideProps(params.id)
+  return <PostDetailClient post={post} />
+}
+
 async function getServerSideProps(id: string) {
   const docRef = doc(db, 'posts', String(id))
   const docSnap = await getDoc(docRef)
@@ -37,11 +42,6 @@ async function getServerSideProps(id: string) {
   }
 
   return { post }
-}
-
-const PostDetailPage = async ({ params }: { params: { id: string } }) => {
-  const { post } = await getServerSideProps(params.id)
-  return <PostDetailClient post={post} />
 }
 
 export default PostDetailPage

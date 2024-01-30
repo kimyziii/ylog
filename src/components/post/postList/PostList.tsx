@@ -1,25 +1,26 @@
 'use client'
+
 import React, { useEffect } from 'react'
 import styles from './PostList.module.scss'
-import useFetchCollection from '@/hooks/useFetchCollection'
-import { useDispatch, useSelector } from 'react-redux'
-import { STORE_POSTS, selectPosts } from '@/redux/slice/postSlice'
+import { useDispatch } from 'react-redux'
+import { STORE_POSTS } from '@/redux/slice/postSlice'
 import { formatDate } from '@/util/dayjs'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { IPost } from '@/types'
 
-const PostList = () => {
+interface IPostListProps {
+  posts: IPost[]
+}
+
+const PostList = ({ posts }: IPostListProps) => {
+  console.log(posts)
   const router = useRouter()
   const dispatch = useDispatch()
 
-  const { data } = useFetchCollection('posts')
-
   useEffect(() => {
-    dispatch(STORE_POSTS(data))
-  }, [dispatch, data])
-
-  const posts = useSelector(selectPosts)
+    dispatch(STORE_POSTS(posts))
+  }, [dispatch, posts])
 
   return (
     <div className={styles.postList}>
