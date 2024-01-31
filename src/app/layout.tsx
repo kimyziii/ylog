@@ -15,6 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        <meta
+          name='google-site-verification'
+          content='cmuhdzW-y4zcB7lipsL3erlCLwqoRRhIIxwismXZZ-w'
+        />
+      </head>
       <body className={inter.className}>
         <Providers>
           <PersistGate loading={null} persistor={persistor}>
