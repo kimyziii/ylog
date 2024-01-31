@@ -1,5 +1,5 @@
 'use client'
-import React, { FormEventHandler, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../write/WriteClient.module.scss'
 import { DocumentData, Timestamp, doc, setDoc } from 'firebase/firestore'
 import { db } from '@/firebase/firebase'
