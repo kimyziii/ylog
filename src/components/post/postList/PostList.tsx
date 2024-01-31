@@ -14,7 +14,6 @@ interface IPostListProps {
 }
 
 const PostList = ({ posts }: IPostListProps) => {
-  console.log(posts)
   const router = useRouter()
   const dispatch = useDispatch()
 

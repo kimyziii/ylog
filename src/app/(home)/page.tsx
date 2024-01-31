@@ -28,6 +28,7 @@ async function getServerSideProps() {
   const querySnapshot = await getDocs(q)
   querySnapshot.forEach((document: DocumentData) => {
     const doc = document.data()
+    console.log(doc)
     const obj = {
       id: document.id,
       createdDate: new Date(

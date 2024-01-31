@@ -64,5 +64,14 @@
   }
   .contents {
     margin: 3rem 1rem;
+
+    strong {
+      font-weight: 700;
+    }
+
+    ul + p {
+      margin-top: 10px;
+      margin-left: 40px;
+    }
   }
 }
