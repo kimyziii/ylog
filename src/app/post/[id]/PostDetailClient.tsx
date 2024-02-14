@@ -2,7 +2,7 @@
 
 import React from 'react'
 import styles from './PostDetailClient.module.scss'
-import { formatDate } from '@/util/dayjs'
+import { formatTimestamp } from '@/util/dayjs'
 import parse from 'html-react-parser'
 import Link from 'next/link'
 import Notiflix from 'notiflix'
@@ -59,6 +59,8 @@ const PostDetailClient = ({ post }: IPostDetailClientProps) => {
     }
   }
 
+  console.log(post)
+
   return (
     <>
       <Head>
@@ -76,7 +78,7 @@ const PostDetailClient = ({ post }: IPostDetailClientProps) => {
               <h1 className={styles.title}>{post.title}</h1>
               <div className={styles.subtitle}>
                 <span className={styles.date}>
-                  {formatDate(post.createdDate, 'YYYY년 MM월 DD일')}
+                  {formatTimestamp(post.createdAt, 'YYYY년 MM월 DD일')}
                 </span>
                 {keywords.length > 0 && (
                   <div className={styles.keywords}>
