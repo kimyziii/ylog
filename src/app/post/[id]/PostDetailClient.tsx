@@ -8,7 +8,7 @@ import Link from 'next/link'
 import Notiflix from 'notiflix'
 import { deleteDoc, doc } from 'firebase/firestore'
 import { db } from '@/firebase/firebase'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useSelector } from 'react-redux'
 import { selectLoggedIn } from '@/redux/slice/authSlice'
 import { IPost } from '@/types'
@@ -52,7 +52,8 @@ const PostDetailClient = ({ post }: IPostDetailClientProps) => {
   const deletePost = async (id: string) => {
     try {
       await deleteDoc(doc(db, 'posts', id))
-      router.push('/', undefined, { shallow: false })
+      // router.push('/', undefined, { shallow: false })
+      router.push('/')
     } catch (e) {
       // 에러 처리
     }
