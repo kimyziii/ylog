@@ -1,6 +1,16 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://example.com',
-  generateRobotsTxt: true, // (optional)
-  // ...other options
+  siteUrl: process.env.SITE_URL,
+  generateRobotsTxt: true,
+  priority: 1,
+  exclude: ['/login', '/edit/**', '/write'],
+  robotsTxtOptions: {
+    additionalSitemaps: [`${process.env.SITE_URL}/server-sitemap.xml`],
+    policies: [
+      {
+        userAgent: '*',
+        allow: '/',
+      },
+    ],
+  },
 }
