@@ -59,8 +59,6 @@ const PostDetailClient = ({ post }: IPostDetailClientProps) => {
     }
   }
 
-  console.log(post)
-
   return (
     <>
       <Head>

@@ -1,25 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css');
+
 @font-face {
   font-family: 'SuseongDotum';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/SuseongDotum.woff2')
     format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Godo';
-  font-style: normal;
-  font-weight: 400;
-  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2')
-      format('woff2'),
-    url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff')
-      format('woff');
-}
-
-@font-face {
-  font-family: 'GangwonEdu_OTFBoldA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff')
-    format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -33,12 +18,12 @@
 }
 
 :root {
-  --background-color: #eae1e6;
+  --background-color: #fffffc;
   --color-lightgray: #f1f1f1;
   --color-gray: #919191;
-  --color-darkgary: #474747;
+  --color-darkgray: #474747;
   --color-red: #9c1d2b;
-  --color-black: #3a2b26;
+  --color-black: #0f0d0c;
   --color-white: #ffffff;
 
   --color-primary: #e4c2c1;
@@ -48,7 +33,7 @@
 
 * {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   ::selection {
     background-color: var(--color-primary);
   }
@@ -58,17 +43,37 @@ body {
   background-color: var(--background-color);
 }
 
-h2 {
+h1 {
+  font-family: 'Pretendard';
   font-size: 1.5rem;
   color: var(--color-point);
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Pretendard';
+  font-size: 1.3rem;
+  color: var(--color-point);
+  font-weight: 700;
 }
 
 h3 {
+  font-family: 'Pretendard';
   font-size: 1.3rem;
+  margin: 7px auto;
 }
 
 p {
+  font-family: 'Pretendard';
   font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+}
+
+ul {
+  font-family: 'Pretendard';
+  font-weight: 500;
 }
 
 ul + p {
@@ -86,7 +91,7 @@ blockquote {
 }
 
 pre {
-  background-color: var(--color-darkgary);
+  background-color: var(--color-darkgray);
   color: var(--color-white);
   font-family: 'D2Coding';
   font-size: 0.8rem;

@@ -7,6 +7,9 @@ import { SET_LOGOUT, selectLoggedIn } from '@/redux/slice/authSlice'
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase/firebase'
 
+import { TiPencil } from 'react-icons/ti'
+import { MdLogout } from 'react-icons/md'
+
 const Header = () => {
   const router = useRouter()
   const dispatch = useDispatch()
@@ -47,14 +50,13 @@ const Header = () => {
         )}
         {isLoggedIn && (
           <ul className={styles.list}>
-            <li
+            <TiPencil
+              size={20}
               onClick={() => {
                 router.push('/write')
               }}
-            >
-              글쓰기
-            </li>
-            <li onClick={handleLogout}>로그아웃</li>
+            />
+            <MdLogout size={20} onClick={handleLogout} />
           </ul>
         )}
       </div>

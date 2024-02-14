@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  font-family: 'GangwonEdu_OTFBoldA';
+  font-family: 'Pretendard';
 
   .header {
     background-color: var(--color-black);
@@ -21,9 +21,10 @@
     }
 
     .title {
-      font-family: 'Godo';
+      font-family: 'Pretendard';
       font-size: 1.7rem;
       color: var(--color-white);
+      font-weight: 800;
     }
 
     .subtitle {
@@ -64,6 +65,7 @@
   }
   .contents {
     margin: 3rem 1rem;
+    font-weight: 200;
 
     strong {
       font-weight: 700;

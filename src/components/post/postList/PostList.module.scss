@@ -1,12 +1,12 @@
 .postList {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 20px auto;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(3, 30%);
-  gap: 20px;
   row-gap: 40px;
+  margin-bottom: 40px;
+
+  display: flex;
+  flex-direction: column;
 
   .post {
     display: flex;
@@ -14,71 +14,38 @@
     justify-content: flex-start;
     gap: 10px;
     align-items: flex-start;
+    cursor: pointer;
 
-    .image {
-      position: relative;
-      width: 100%;
-      border: 3px solid var(--color-black);
-      border-radius: 6px;
-      height: 200px;
-      cursor: pointer;
-      object-fit: cover;
-      overflow: hidden;
-    }
-
-    .summary {
+    .wrapper {
       display: flex;
-      flex-flow: column wrap;
-      gap: 7px;
+      width: 100%;
+      justify-content: space-between;
 
-      .title {
-        font-family: 'SuseongDotum';
-        font-size: 1.2rem;
-        color: var(--color-black);
-        cursor: pointer;
-        background: transparent;
-        width: fit-content;
+      .summary {
+        display: flex;
+        flex-flow: column wrap;
+        gap: 7px;
+        width: 90%;
+
+        .title {
+          font-size: 1.3rem;
+          color: var(--color-black);
+          background: transparent;
+          width: fit-content;
+        }
+
+        .desc {
+          width: 95%;
+          color: var(--color-darkgray);
+          font-size: 0.9rem;
+          line-height: 1rem;
+        }
       }
 
       .date {
-        font-family: 'godo';
-        font-size: 0.9rem;
-        color: var(--color-darkgary);
-        margin-bottom: 3px;
-      }
-
-      .desc {
-        font-family: 'godo';
-        color: var(--color-gray);
+        width: 10%;
         font-size: 0.8rem;
-      }
-    }
-
-    .btnGroup {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: space-between;
-      align-items: flex-end;
-
-      a {
-        text-decoration: none;
-        color: var(--color-black);
-        font-size: small;
-      }
-
-      .keywords {
-        display: flex;
-        gap: 10px;
-
-        .keyword {
-          background-color: var(--color-point);
-          color: white;
-          padding: 5px 8px;
-          font-size: small;
-          font-weight: bold;
-          border-radius: 15px;
-          cursor: pointer;
-        }
+        color: var(--color-darkgray);
       }
     }
   }

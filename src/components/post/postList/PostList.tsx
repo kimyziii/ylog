@@ -27,36 +27,22 @@ const PostList = ({ posts }: IPostListProps) => {
         <>
           {posts.map((post: IPost) => {
             return (
-              <section key={post.id} className={styles.post}>
-                <div
-                  className={styles.image}
-                  onClick={() => {
-                    router.push(`/post/${post.id}`)
-                  }}
-                >
-                  <Image
-                    src='/bg.jpg'
-                    width={0}
-                    height={0}
-                    alt={post.title}
-                    style={{ width: '100%', height: '200px' }}
-                  />
-                </div>
-                <div className={styles.summary}>
-                  <div className={styles.date}>
-                    {formatDate(post.createdDate, 'YYYY년 MM월 DD일')}
+              <section
+                key={post.id}
+                className={styles.post}
+                onClick={() => {
+                  router.push(`/post/${post.id}`)
+                }}
+              >
+                <div className={styles.wrapper}>
+                  <div className={styles.summary}>
+                    <h1 className={styles.title}>{post.title}</h1>
+                    <p className={styles.desc}>{post.description}</p>
                   </div>
-                  <div
-                    className={styles.title}
-                    onClick={() => {
-                      router.push(`/post/${post.id}`)
-                    }}
-                  >
-                    {post.title}
-                  </div>
-                  <div className={styles.desc}>{post.description}</div>
+                  <p className={styles.date}>
+                    {formatDate(post.createdDate, 'YYYY. MM. DD')}
+                  </p>
                 </div>
-                <div className={styles.btnGroup}></div>
               </section>
             )
           })}
