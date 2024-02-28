@@ -34,9 +34,10 @@
 * {
   margin: 0;
   font-size: 18px;
-  ::selection {
-    background-color: var(--color-primary);
-  }
+}
+
+*::selection {
+  background-color: var(--color-primary);
 }
 
 body {
