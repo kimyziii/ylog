@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { SET_LOGIN } from '@/redux/slice/authSlice'
 import { Notify } from 'notiflix'
+import { Metadata } from 'next'
 
 type DataType = {
   email: string
@@ -19,6 +20,12 @@ const initialState = {
   password: '',
 }
 
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 interface FirebaseError extends Error {
   message: string
   code: string

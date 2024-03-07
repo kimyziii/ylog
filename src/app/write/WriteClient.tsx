@@ -6,6 +6,7 @@ import styles from './WriteClient.module.scss'
 import { Timestamp, addDoc, collection } from 'firebase/firestore'
 import { db } from '@/firebase/firebase'
 import { useRouter } from 'next/navigation'
+import { Metadata } from 'next'
 
 type DataType = {
   title: string
@@ -24,6 +25,13 @@ const initialData = {
   keywords: '',
   userId: '',
   userName: '',
+}
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 const WriteClient = () => {

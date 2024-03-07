@@ -8,12 +8,20 @@ import {
   orderBy,
   query,
 } from 'firebase/firestore'
+import Head from 'next/head'
 
 const Home = async () => {
   const { posts } = await getServerSideProps()
 
   return (
     <>
+      <Head>
+        <meta name='title' content='Y_LOG' />
+        <meta
+          name='description'
+          content='공부한 것들, 프로젝트하면서 어려웠던 것들 로그로 남기기'
+        />
+      </Head>
       <PostList posts={posts} />
     </>
   )
@@ -28,7 +36,6 @@ async function getServerSideProps() {
   const querySnapshot = await getDocs(q)
   querySnapshot.forEach((document: DocumentData) => {
     const doc = document.data()
-    console.log(doc)
     const obj = {
       id: document.id,
       createdDate: new Date(

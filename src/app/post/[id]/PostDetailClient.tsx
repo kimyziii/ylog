@@ -64,7 +64,6 @@ const PostDetailClient = ({ post }: IPostDetailClientProps) => {
       <Head>
         <meta name='title' content={post.title} />
         <meta name='description' content={post.description} />
-        <meta name='robots' content='noindex, follow' />
       </Head>
       <article className={styles.section}>
         {post && (

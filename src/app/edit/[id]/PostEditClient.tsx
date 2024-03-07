@@ -9,6 +9,14 @@ import QuillEditor from '@/components/quill/QuillEditor'
 import Button from '@/components/button/Button'
 import { useSelector } from 'react-redux'
 import { selectLoggedIn } from '@/redux/slice/authSlice'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 const PostEditClient = () => {
   const router = useRouter()
