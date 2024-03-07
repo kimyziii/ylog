@@ -48,15 +48,18 @@ const PostEditClient = () => {
     e.preventDefault()
 
     const obj = {
-      modifiedAt: Timestamp.now().toDate(),
       ...post,
+      modifiedAt: Timestamp.now().toDate(),
     }
 
+    console.log(obj)
+
     try {
-      setDoc(doc(db, 'posts', id), obj)
+      await setDoc(doc(db, 'posts', id), obj)
       router.push(`/post/${id}`)
-    } catch (e) {
+    } catch (e: any) {
       // 에러 처리
+      console.error(e.message)
     } finally {
     }
   }
@@ -69,7 +72,7 @@ const PostEditClient = () => {
             name='title'
             type='text'
             placeholder='제목'
-            value={post.title}
+            value={post.title || ''}
             onChange={(e) => handleChange(e)}
           />
         </div>
@@ -78,7 +81,7 @@ const PostEditClient = () => {
             name='description'
             type='type'
             placeholder='요약'
-            value={post.description}
+            value={post.description || ''}
             onChange={(e) => handleChange(e)}
           />
         </div>
@@ -87,13 +90,13 @@ const PostEditClient = () => {
             name='keywords'
             type='type'
             placeholder='키워드'
-            value={post.keywords}
+            value={post.keywords || ''}
             onChange={(e) => handleChange(e)}
           />
         </div>
         <QuillEditor
           onChange={(value) => handleEditorChange(value)}
-          contents={post.contents}
+          contents={post.contents || ''}
         />
         <Button>저장하기</Button>
       </form>
