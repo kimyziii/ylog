@@ -53,6 +53,7 @@ const WriteClient = () => {
     const dataObj = {
       ...data,
       createdAt: Timestamp.now().toDate(),
+      modifiedAt: Timestamp.now().toDate(),
     }
     const doc = await addDoc(collection(db, 'posts'), dataObj)
     router.push(`/post/${doc.id}`)
